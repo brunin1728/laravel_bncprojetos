@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA]
+Options -Indexes 
+
+RewriteCond %{HTTP_HOST} ^localhost/site-turismo
+RewriteRule ^ http://localhost/site-turismo/%{REQUEST_URI} [L,R=301]
+
+</IfModule>
